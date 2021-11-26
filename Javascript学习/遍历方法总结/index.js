@@ -11,7 +11,6 @@
 // 只遍历对象的symbol属性
 // 6. Object.getOwnPropertySymbols()
 
-// Object.getOwnPropertyNames() === for in + Object.keys()
 // Reflect.ownKeys() === Object.getOwnPropertyNames()+Object.getOwnPropertySymbols()
 
 // 例子：
