@@ -1,6 +1,6 @@
 // 保存的目的就是为了取用，其实Symbol.for也相当于提供了个保存的功能，但由于其是注册在全局环境中的，相当于是全局环境中都能取到，不太适合某些不想其他作用域获取到的情况。
 // 因此，可以实现一个注册表的类，用变量来存注册表实例，灵活控制其作用域
-class mySymbol {
+class MySymbol {
   constructor() {
     // 用数组、对象存储都可以。。
     // 这里就维护一个形如 [[key,symbol],[key,symbol],...,[key,symbol]] 的注册表
@@ -38,7 +38,7 @@ class mySymbol {
   }
 
   // 根据Symbol获取key值
-  myKeyFor(symValue) {
+  KeyFor(symValue) {
     let index = this.SymbolList.findIndex((item) => item[1] === symValue);
     if (index >= 0) {
       return this.SymbolList[index][0];
@@ -51,11 +51,11 @@ class mySymbol {
   }
 }
 
-let mySym = new mySymbol();
+let mySym = new MySymbol();
 
 mySym.add('aa');
-let test = mySym.get('aa');
+let test = mySym.get('aa'); // Symbol(aa)
 console.log(test);
-console.log(mySym.myKeyFor(test));
+console.log(mySym.KeyFor(test)); // aa
 mySym.delete('aa');
-console.log(mySym.get('aa'));
+console.log(mySym.get('aa')); // undefined
