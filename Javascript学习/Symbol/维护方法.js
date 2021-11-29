@@ -3,6 +3,7 @@
 class mySymbol {
   constructor() {
     // 用数组、对象存储都可以。。
+    // 这里就维护一个形如 [[key,symbol],[key,symbol],...,[key,symbol]] 的注册表
     this.SymbolList = [];
   }
   // 增加symbol
