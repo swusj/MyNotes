@@ -38,7 +38,7 @@ class MySymbol {
   }
 
   // 根据Symbol获取key值
-  KeyFor(symValue) {
+  keyFor(symValue) {
     let index = this.SymbolList.findIndex((item) => item[1] === symValue);
     if (index >= 0) {
       return this.SymbolList[index][0];
@@ -56,6 +56,6 @@ let mySym = new MySymbol();
 mySym.add('aa');
 let test = mySym.get('aa'); // Symbol(aa)
 console.log(test);
-console.log(mySym.KeyFor(test)); // aa
+console.log(mySym.keyFor(test)); // aa
 mySym.delete('aa');
 console.log(mySym.get('aa')); // undefined
